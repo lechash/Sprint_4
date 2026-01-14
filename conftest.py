@@ -6,8 +6,7 @@ def collector():
     return BooksCollector()
 
 @pytest.fixture
-def more_books():
-    collector = BooksCollector()
+def more_books(collector):
     books = [
         ('Звездные войны', 'Фантастика'),
         ('Оно', 'Ужасы'),
@@ -23,8 +22,7 @@ def more_books():
     return collector
 
 @pytest.fixture
-def collector_favorites_book():
-    collector = BooksCollector()
+def collector_favorites_book(collector):
     books = ['Звездные войны', 'Оно', 'Агата Кристи']
     for book in books:
         collector.add_new_book(book)
