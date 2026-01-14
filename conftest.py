@@ -8,7 +8,6 @@ def collector():
 
 @pytest.fixture
 def more_books(collector):
-    """Экземпляр с предварительно добавленными книгами."""
     for name, genre in BOOKS_DATA:
         collector.add_new_book(name)
         if genre:
@@ -17,7 +16,6 @@ def more_books(collector):
 
 @pytest.fixture
 def collector_favorites_book(collector):
-    """Экземпляр с книгами в избранном."""
     for book in FAVORITES_BOOKS:
         collector.add_new_book(book)
         collector.add_book_in_favorites(book)
